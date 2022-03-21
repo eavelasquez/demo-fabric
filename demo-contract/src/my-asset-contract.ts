@@ -25,6 +25,8 @@ export class MyAssetContract extends Contract {
         myAsset.value = value;
         const buffer: Buffer = Buffer.from(JSON.stringify(myAsset));
         await ctx.stub.putState(myAssetId, buffer);
+        const eventPayload: Buffer = Buffer.from(`Created asset ${myAssetId} (${value})`);
+        ctx.stub.setEvent('myEvent', eventPayload);
     }
 
     @Transaction(false)
