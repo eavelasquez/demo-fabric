@@ -22,7 +22,7 @@ class TestContext implements Context {
     public logger = {
         getLogger: sinon.stub().returns(sinon.createStubInstance(winston.createLogger().constructor)),
         setLevel: sinon.stub(),
-     };
+    };
 }
 
 describe('MyAssetContract', () => {
